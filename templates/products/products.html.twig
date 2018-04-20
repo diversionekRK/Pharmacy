@@ -1,0 +1,41 @@
+{% extends "products/basic.html.twig" %}
+	
+	{% block body %}
+
+        <h4 class="mt-5 mb-3 text-info">
+            Poniżej znajduje się lista produktów dostępnych w naszej aptece </br></br>
+            Zapraszamy do zapoznania się z ofertą
+        </h4>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nr produktu</th>
+                <th>Nazwa</th>
+                <th>Opis</th>
+                <th>Cena</th>
+                <th>Ilość</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% set i = 1 %}
+            {% for prod in product %}
+                <tr>
+                    <td>{{ i }}</td>
+                    <td>{{ prod.name }}</td>
+                    <td>{{ prod.description }}</td>
+                    <td>{{ prod.price }}</td>
+                    <td>{{ prod.quantity }}</td>
+                </tr>
+                {% set i = i+1 %}
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {% if product|length < 10 %}
+            ...
+            {{ app.request.get('id') }}
+        {% endif %}
+
+    {% endblock %}
+    

@@ -1,0 +1,17 @@
+{% extends "management/basic.html.twig" %}
+	
+	{% block body %}
+
+        <div class="jumbotron mt-2">
+            <a href="/modify"><h2 class="text-center"><i class="fa fa-wrench"></i> Modyfikuj</h2></a>
+        </div>
+
+        <div class="jumbotron">
+            <a href="/add"><h2 class="text-center"><i class="fa fa-plus"></i> Dodaj</h2></a>
+        </div>
+
+        <div class="jumbotron">
+            <a href="/delete"><h2 class="text-center"><i class="fa fa-trash-o"></i> Usuń</h2></a>
+        </div>
+
+    {% endblock %}

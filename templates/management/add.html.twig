@@ -1,0 +1,43 @@
+{% extends "management/basic.html.twig" %}
+	
+	{% block body %}
+
+        {% if info is defined %}
+            <h4 class="text-info">{{ info }}</h4>
+        {% endif %}
+
+        {{ form_start(form) }}
+        <div class="form-group">
+            <label for="form_name">Nazwa produktu</label>
+            {{ form_widget(form.name, { 'attr': {'class': 'form-control'} }) }}
+            <div class="redError">{{ form_errors(form.name) }}</div>
+        </div>
+
+        <div class="form-group">
+            <label for="form_description">Opis</label>
+            {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }}
+            <div class="redError">{{ form_errors(form.description) }}</div>
+        </div>
+
+        <div class="form-group">
+            <label for="form_price">Cena</label>
+            {{ form_widget(form.price, { 'attr': {'class': 'form-control'} }) }}
+            <div class="redError">{{ form_errors(form.price) }}</div>
+        </div>
+
+        <div class="form-group">
+            <label for="form_quantity">Ilość</label>
+            {{ form_widget(form.quantity, { 'attr': {'class': 'form-control'} }) }}
+            <div class="redError">{{ form_errors(form.quantity) }}</div>
+        </div>
+
+        {{ form_widget(form.add, { 'attr': {'class': 'btn btn-info'} }) }}
+
+        {{ form_end(form) }}
+
+        <div class="row justify-content-end">
+            <a class="btn btn-primary" href="/manage">Powrót</a>
+        </div>
+
+    {% endblock %}
+    

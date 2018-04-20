@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+
+	{% block navigationManageActive %}active{% endblock %}
+	
+	{% block logout %}
+        <div class="row justify-content-end">
+            <a class="btn btn-primary" href="/logout"><i class="fa fa-sign-out"></i>Wyloguj</a>
+        </div>
+    {% endblock %}

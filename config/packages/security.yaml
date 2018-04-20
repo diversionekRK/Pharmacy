@@ -1,0 +1,35 @@
+security:
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+
+
+    # ...
+
+    providers:
+        our_db_provider:
+            entity:
+                class: App\Entity\User
+                property: username
+                # if you're using multiple entity managers
+                # manager_name: customer
+
+    firewalls:
+        main:
+            pattern:    ^/
+            http_basic: ~
+            provider: our_db_provider
+            anonymous: ~
+            form_login:
+              login_path: login
+              check_path: login
+            logout:
+              path:   /logout
+              target: /home
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/manage, roles: ROLE_USER }
+        - { path: ^/modify, roles: ROLE_USER }
+        - { path: ^/add, roles: ROLE_USER }
+        - { path: ^/delete, roles: ROLE_USER }
+    # ...

@@ -1,0 +1,34 @@
+{% extends "management/basic.html.twig" %}
+	
+	{% block body %}
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nr</th>
+                <th>Nazwa</th>
+                <!--<th>Opis</th>-->
+                <th>Cena</th>
+                <th>Ilość</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody> {% set i = 1 %}
+            {% for prod in product %}
+                <tr>
+                    <td>{{ i }}</td>
+                    <td>{{ prod.name }}</td>
+                    <!--<td>{{ prod.description }}</td>-->
+                    <td>{{ prod.price }}</td>
+                    <td>{{ prod.quantity }}</td>
+                    <td><a href="/modify/{{ prod.id }}">Modyfikuj <i class="fa fa-wrench"></i></a></td>
+                </tr> {% set i = i+1 %}
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="row justify-content-end">
+            <a class="btn btn-primary" href="/manage">Powrót</a>
+        </div>
+    {% endblock %}
+    

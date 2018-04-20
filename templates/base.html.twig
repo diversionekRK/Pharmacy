@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    {% block title %}
+        <title>Aplikacja na zaliczenie</title>
+    {% endblock %}
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/logo-nav.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('css/own-css.css') }}" rel="stylesheet">
+
+    <style>
+        {% block style %}
+        {% endblock %}
+    </style>
+</head>
+
+<body>
+{% block navigation %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/home">
+                <img src="{{ asset('logo.jpg') }}" width="150" height="30" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item {% block navigationHomeActive %}{% endblock %}">
+                        <a class="nav-link" href="/home">Strona główna
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item {% block navigationProductsActive %}{% endblock %}">
+                        <a class="nav-link" href="/products">Oferta</a>
+                    </li>
+                    <li class="nav-item {% block navigationManageActive %}{% endblock %}">
+                        <a class="nav-link" href="/manage">Zarządzanie</a>
+                    </li>
+                    <li class="nav-item {% block navigationContactActive %}{% endblock %}">
+                        <a class="nav-link" href="/contact">Kontakt</a>
+                    </li>
+                    <!--<li class="nav-item {% block navigationLoginActive %}{% endblock %}">
+					{% if app.user %}
+						<a class="nav-link" href="/logout">Wyloguj</a>
+					{% else %}
+						<a class="nav-link" href="/login">Zaloguj</a>
+					{% endif %}
+			</li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+
+<!-- Page Content -->
+<div class="container">
+    {% block logout %}
+    {% endblock %}
+    {% block body %}
+        <h1 class="mt-5">Logo Nav by Start Bootstrap</h1>
+        <p>The logo in the navbar is now a default Bootstrap feature in Bootstrap 4! Make sure to set the width and
+            height of the logo within the HTML. For best results, it's recommended that you use an SVG image as your
+            logo.</p>
+
+
+    {% endblock %}
+
+</div>
+<!-- /.container -->
+
+<br/>
+<footer class="footer">
+    <div class="container-fluid footer">
+        <span class="text-muted">@2018 R. Klewek</span>
+    </div>
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+{% extends "management/basic.html.twig" %}
+	
+	{% block body %}
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nazwa</th>
+                <!--<th>Opis</th>-->
+                <th>Cena</th>
+                <th>Ilość</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for prod in product %}
+                <tr>
+                    <td>{{ prod.name }}</td>
+                    <!--<td>{{ prod.description }}</td>-->
+                    <td>{{ prod.price }}</td>
+                    <td>{{ prod.quantity }}</td>
+                    <td><a href="/delete/{{ prod.id }}">Usuń <i class="fa fa-times"></i></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="row justify-content-end">
+            <a class="btn btn-primary" href="/manage">Powrót</a>
+        </div>
+
+    {% endblock %}
+    

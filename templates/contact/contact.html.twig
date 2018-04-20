@@ -1,0 +1,38 @@
+{% extends "contact/basic.html.twig" %}
+	
+	{% block body %}
+
+        <h3 class="mt-5 mb-3">
+            Dane kontaktowe
+        </h3>
+
+        <h5 class="text-primary">
+            Apteka Janusik
+        </h5>
+
+        <h6>
+            Adres
+        </h6>
+        <pre>
+	Lublin
+	Nadbystrzycka 33
+	20-618 Lublin
+	</pre>
+
+        <h6>
+            Telefony kontaktowe
+        </h6>
+        <pre>
+	555-555-555
+	666-666-666
+	777-777-777
+	</pre>
+
+        <h4 class="mt-4 mb-3 text-info">Jak nas znaleźć:</h4>
+        <img class="img-fluid d-block"
+             src="https://maps.googleapis.com/maps/api/staticmap?center=Albany,+NY&zoom=13&scale=1&size=600x300&maptype=roadmap&format=png&visual_refresh=true"
+             alt="Google Map of Albany, NY">
+
+
+    {% endblock %}
+    

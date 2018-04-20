@@ -1,0 +1,58 @@
+{% extends "products/basic.html.twig" %}
+	
+	{% block body %}
+
+        <h4 class="mt-5 mb-3 text-info">
+            Poniżej znajduje się lista produktów dostępnych w naszej aptece
+        </h4>
+
+        <h4 class="mt-5 mb-3 text-info">
+            Zapraszamy do zapoznania się z ofertą
+        </h4>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Nr produktu</th>
+                <th>Nazwa</th>
+                <th>Opis</th>
+                <th>Cena</th>
+                <th>Ilość</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% set i = 1 + (app.request.get('id')  - 1) * 10 %}
+            {% for prod in product %}
+                <tr>
+                    <td>{{ i }}</td>
+                    <td>{{ prod.name }}</td>
+                    <td>{{ prod.description }}</td>
+                    <td>{{ prod.price }}</td>
+                    <td>{{ prod.quantity }}</td>
+                </tr>
+                {% set i = i+1 %}
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <p class="text-center">
+            <h7 class="text-info">Strona {{ app.request.get('id') }}</h7>
+        </p>
+
+        <div style="display: flex; justify-content: space-between;">
+            <div>
+                {% if app.request.get('id') != 1 %}
+                    <a class="btn btn-primary" href="/products/{{ app.request.get('id')-1 }}"><i
+                                class="fa fa-arrow-left"></i> Poprzednia</a>
+                {% endif %}
+            </div>
+            <div>
+                {% if app.request.get('id') < length %}
+                    <a class="btn btn-primary" href="/products/{{ app.request.get('id')+1 }}">Następna <i
+                                class="fa fa-arrow-right"></i></a>
+                {% endif %}
+            </div>
+        </div>
+
+    {% endblock %}
+    
